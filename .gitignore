@@ -1,3 +1,10 @@
+# Pod
+#
+# cocoapod file
+
+/Podfile.lock
+/Pods/
+
 # macOS
 #
 # macOS file
