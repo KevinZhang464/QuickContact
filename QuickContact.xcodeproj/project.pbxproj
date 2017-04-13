@@ -15,6 +15,7 @@
 		0AAB61DF1E9E70C700A0F424 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AAB61DD1E9E70C700A0F424 /* LaunchScreen.storyboard */; };
 		0AAB61EA1E9E70C700A0F424 /* QuickContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB61E91E9E70C700A0F424 /* QuickContactTests.swift */; };
 		0AAB61F51E9E70C700A0F424 /* QuickContactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB61F41E9E70C700A0F424 /* QuickContactUITests.swift */; };
+		0ADE187B1E9E1259008AA8CB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADE187A1E9E1259008AA8CB /* DetailViewController.swift */; };
 		65F29F489296A0E2442866B8 /* Pods_QuickContact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B1BEA909B6AED3C09DC3FA /* Pods_QuickContact.framework */; };
 		C129A7ACCC949B8F490AC290 /* Pods_QuickContactTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB0E4B56826E24158E2184B /* Pods_QuickContactTests.framework */; };
 		ED79B31610E4F200AFC555C3 /* Pods_QuickContactUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F32C333A87EE3F6CD92D57A /* Pods_QuickContactUITests.framework */; };
@@ -53,6 +54,7 @@
 		0AAB61F01E9E70C700A0F424 /* QuickContactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickContactUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AAB61F41E9E70C700A0F424 /* QuickContactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickContactUITests.swift; sourceTree = "<group>"; };
 		0AAB61F61E9E70C700A0F424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ADE187A1E9E1259008AA8CB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		19B1BEA909B6AED3C09DC3FA /* Pods_QuickContact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickContact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F32C333A87EE3F6CD92D57A /* Pods_QuickContactUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickContactUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4059DB10B4A7277538EE86AE /* Pods-QuickContactTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickContactTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickContactTests/Pods-QuickContactTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				0AAB61D11E9E70C700A0F424 /* AppDelegate.swift */,
 				0AAB61D31E9E70C700A0F424 /* ViewController.swift */,
+				0ADE187A1E9E1259008AA8CB /* DetailViewController.swift */,
 				0AAB61D51E9E70C700A0F424 /* Main.storyboard */,
 				0AAB61DB1E9E70C700A0F424 /* Assets.xcassets */,
 				0AAB61DD1E9E70C700A0F424 /* LaunchScreen.storyboard */,
@@ -452,6 +455,7 @@
 				0AAB61D41E9E70C700A0F424 /* ViewController.swift in Sources */,
 				0AAB61D21E9E70C700A0F424 /* AppDelegate.swift in Sources */,
 				0AAB61DA1E9E70C700A0F424 /* QuickContact.xcdatamodeld in Sources */,
+				0ADE187B1E9E1259008AA8CB /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
