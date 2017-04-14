@@ -1,14 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Contact List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ContactListViewController" customModule="QuickContact" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +22,190 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8D1-a1-OTx">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Contact List" id="bUa-Ob-PPU"/>
+                                </items>
+                            </navigationBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0V-4r-3Ey">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <connections>
+                                    <segue destination="zGE-gs-H8H" kind="embed" id="CPP-Ki-WFy"/>
+                                </connections>
+                            </containerView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gd6-e3-KD8">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="1wu-8v-2nj">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f2D-Wc-KcV">
+                                            <rect key="frame" x="16" y="7" width="110" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Refresh"/>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MpG-gc-JmE"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="np1-kV-QBI"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="e3P-NV-pAr"/>
+                                    <barButtonItem style="plain" id="waq-ar-duV">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="euY-Jx-kC4">
+                                            <rect key="frame" x="249" y="7" width="110" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Add to Contact"/>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="e0V-4r-3Ey" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="0a9-dE-HdF"/>
+                            <constraint firstItem="gd6-e3-KD8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4aa-JH-GgE"/>
+                            <constraint firstItem="8D1-a1-OTx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EXK-Zv-eYW"/>
+                            <constraint firstItem="gd6-e3-KD8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="HKY-Cz-nW5"/>
+                            <constraint firstItem="e0V-4r-3Ey" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XAS-WJ-Mm6"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gd6-e3-KD8" secondAttribute="bottom" id="bFA-if-UWz"/>
+                            <constraint firstItem="e0V-4r-3Ey" firstAttribute="top" secondItem="8D1-a1-OTx" secondAttribute="bottom" id="bFj-L4-p08"/>
+                            <constraint firstItem="8D1-a1-OTx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="c9k-vW-zK1"/>
+                            <constraint firstItem="8D1-a1-OTx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="h6j-lu-Qu8"/>
+                            <constraint firstItem="e0V-4r-3Ey" firstAttribute="bottom" secondItem="gd6-e3-KD8" secondAttribute="top" id="uqp-Qv-pXm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <segue destination="hIV-gm-8Vj" kind="showDetail" identifier="showContactDetail" id="qnm-u6-VNa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="36.431784107946029"/>
+        </scene>
+        <!--Contact Detail View Controller-->
+        <scene sceneID="TOJ-5z-HVp">
+            <objects>
+                <viewController id="hIV-gm-8Vj" customClass="ContactDetailViewController" customModule="QuickContact" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DYN-hJ-phM"/>
+                        <viewControllerLayoutGuide type="bottom" id="YHB-6v-g1K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qLV-nx-pWA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1MT-qV-eqx">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Contact Detail" id="gpA-fa-NIr"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1MT-qV-eqx" firstAttribute="width" secondItem="qLV-nx-pWA" secondAttribute="width" id="hhJ-Hi-CdV"/>
+                            <constraint firstItem="1MT-qV-eqx" firstAttribute="top" secondItem="DYN-hJ-phM" secondAttribute="bottom" id="ltX-Jo-5JN"/>
+                            <constraint firstItem="1MT-qV-eqx" firstAttribute="centerX" secondItem="qLV-nx-pWA" secondAttribute="centerX" id="vHZ-Tc-I0g"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5l7-vn-E1B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="818" y="36"/>
+        </scene>
+        <!--Contact Table View Controller-->
+        <scene sceneID="a6c-xk-F91">
+            <objects>
+                <viewController id="zGE-gs-H8H" customClass="ContactTableViewController" customModule="QuickContact" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" id="QtW-iz-ktR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactTableViewCell" id="m3L-Rj-4L2" customClass="ContactTableViewCell" customModule="QuickContact" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3L-Rj-4L2" id="qyQ-dD-P9L">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iUg-b1-v0q">
+                                            <rect key="frame" x="8" y="8" width="359" height="58.5"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pg2-1D-2X4" userLabel="Detail View">
+                                                    <rect key="frame" x="0.0" y="0.0" width="269.5" height="58.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V09-Vm-m7W" userLabel="Name">
+                                                            <rect key="frame" x="0.0" y="0.0" width="269.5" height="29.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxxxxxxxxxx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxz-ny-Qg7" userLabel="Phone Number">
+                                                            <rect key="frame" x="0.0" y="29.5" width="269.5" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYz-Aw-LRl" userLabel="Show Detail Button">
+                                                            <rect key="frame" x="0.0" y="0.0" width="269.5" height="58.5"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="aYz-Aw-LRl" firstAttribute="width" secondItem="pg2-1D-2X4" secondAttribute="width" id="2fX-QN-pQi"/>
+                                                        <constraint firstItem="aYz-Aw-LRl" firstAttribute="leading" secondItem="pg2-1D-2X4" secondAttribute="leading" id="B37-YV-7em"/>
+                                                        <constraint firstAttribute="bottom" secondItem="cxz-ny-Qg7" secondAttribute="bottom" id="Cr9-1I-IgE"/>
+                                                        <constraint firstItem="cxz-ny-Qg7" firstAttribute="width" secondItem="pg2-1D-2X4" secondAttribute="width" id="RVO-xR-SPD"/>
+                                                        <constraint firstItem="V09-Vm-m7W" firstAttribute="top" secondItem="pg2-1D-2X4" secondAttribute="top" id="SEA-Gf-iUU"/>
+                                                        <constraint firstItem="V09-Vm-m7W" firstAttribute="height" secondItem="pg2-1D-2X4" secondAttribute="height" multiplier="0.5" id="XzJ-Lm-tOR"/>
+                                                        <constraint firstItem="V09-Vm-m7W" firstAttribute="width" secondItem="pg2-1D-2X4" secondAttribute="width" id="ZZL-y2-EKs"/>
+                                                        <constraint firstItem="V09-Vm-m7W" firstAttribute="centerX" secondItem="pg2-1D-2X4" secondAttribute="centerX" id="ZbX-lx-zuq"/>
+                                                        <constraint firstItem="aYz-Aw-LRl" firstAttribute="height" secondItem="pg2-1D-2X4" secondAttribute="height" id="bol-V1-eCg"/>
+                                                        <constraint firstItem="cxz-ny-Qg7" firstAttribute="height" secondItem="pg2-1D-2X4" secondAttribute="height" multiplier="0.5" id="erM-XM-uee"/>
+                                                        <constraint firstItem="aYz-Aw-LRl" firstAttribute="top" secondItem="pg2-1D-2X4" secondAttribute="top" id="psD-3M-ldV"/>
+                                                        <constraint firstItem="cxz-ny-Qg7" firstAttribute="centerX" secondItem="pg2-1D-2X4" secondAttribute="centerX" id="xwo-S0-nqg"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ2-ad-JfP" userLabel="SMS Button">
+                                                    <rect key="frame" x="269.5" y="0.0" width="89.5" height="58.5"/>
+                                                    <state key="normal" title="SMS"/>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="pg2-1D-2X4" firstAttribute="width" secondItem="iUg-b1-v0q" secondAttribute="width" multiplier="0.75" id="1HT-8E-a82"/>
+                                                <constraint firstItem="pg2-1D-2X4" firstAttribute="top" secondItem="iUg-b1-v0q" secondAttribute="top" id="2P1-d7-BLc"/>
+                                                <constraint firstItem="pg2-1D-2X4" firstAttribute="leading" secondItem="iUg-b1-v0q" secondAttribute="leading" id="WD7-kV-mGQ"/>
+                                                <constraint firstItem="KZ2-ad-JfP" firstAttribute="height" secondItem="iUg-b1-v0q" secondAttribute="height" id="egl-98-XGG"/>
+                                                <constraint firstAttribute="trailing" secondItem="KZ2-ad-JfP" secondAttribute="trailing" id="i1c-jE-PfU"/>
+                                                <constraint firstItem="KZ2-ad-JfP" firstAttribute="width" secondItem="iUg-b1-v0q" secondAttribute="width" multiplier="0.25" id="jgL-ty-aGA"/>
+                                                <constraint firstItem="pg2-1D-2X4" firstAttribute="height" secondItem="iUg-b1-v0q" secondAttribute="height" id="w59-zF-TJt"/>
+                                                <constraint firstItem="KZ2-ad-JfP" firstAttribute="top" secondItem="iUg-b1-v0q" secondAttribute="top" id="yca-Qv-iuW"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iUg-b1-v0q" firstAttribute="top" secondItem="qyQ-dD-P9L" secondAttribute="topMargin" id="3yR-cZ-ymL"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="iUg-b1-v0q" secondAttribute="trailing" id="732-68-7N7"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="iUg-b1-v0q" secondAttribute="bottom" id="Q1r-5x-McI"/>
+                                        <constraint firstItem="iUg-b1-v0q" firstAttribute="leading" secondItem="qyQ-dD-P9L" secondAttribute="leadingMargin" id="rOj-V5-R8k"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="V09-Vm-m7W" id="kTg-ym-rjX"/>
+                                    <outlet property="phoneNumberLabel" destination="cxz-ny-Qg7" id="OGp-1J-V8O"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="zGE-gs-H8H" id="QNd-Km-YMP"/>
+                            <outlet property="delegate" destination="zGE-gs-H8H" id="XNk-fz-9zL"/>
+                        </connections>
+                    </tableView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Re9-J5-KHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="25" y="790"/>
         </scene>
     </scenes>
 </document>

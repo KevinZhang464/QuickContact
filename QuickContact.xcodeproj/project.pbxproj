@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0AAB61D21E9E70C700A0F424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB61D11E9E70C700A0F424 /* AppDelegate.swift */; };
-		0AAB61D41E9E70C700A0F424 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB61D31E9E70C700A0F424 /* ViewController.swift */; };
+		0AAB61D41E9E70C700A0F424 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB61D31E9E70C700A0F424 /* ContactListViewController.swift */; };
 		0AAB61D71E9E70C700A0F424 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AAB61D51E9E70C700A0F424 /* Main.storyboard */; };
 		0AAB61DA1E9E70C700A0F424 /* QuickContact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB61D81E9E70C700A0F424 /* QuickContact.xcdatamodeld */; };
 		0AAB61DC1E9E70C700A0F424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AAB61DB1E9E70C700A0F424 /* Assets.xcassets */; };
 		0AAB61DF1E9E70C700A0F424 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AAB61DD1E9E70C700A0F424 /* LaunchScreen.storyboard */; };
 		0AAB61EA1E9E70C700A0F424 /* QuickContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB61E91E9E70C700A0F424 /* QuickContactTests.swift */; };
 		0AAB61F51E9E70C700A0F424 /* QuickContactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB61F41E9E70C700A0F424 /* QuickContactUITests.swift */; };
+		0ABD81151EA071BA002C3B1C /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD81141EA071BA002C3B1C /* ContactDetailViewController.swift */; };
+		0ABD811B1EA0CE1E002C3B1C /* ContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD811A1EA0CE1E002C3B1C /* ContactData.swift */; };
+		0ABD811E1EA0D2DB002C3B1C /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD811D1EA0D2DB002C3B1C /* ContactTableViewCell.swift */; };
+		0ABD81201EA0D320002C3B1C /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD811F1EA0D320002C3B1C /* ContactTableViewController.swift */; };
 		65F29F489296A0E2442866B8 /* Pods_QuickContact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B1BEA909B6AED3C09DC3FA /* Pods_QuickContact.framework */; };
 		C129A7ACCC949B8F490AC290 /* Pods_QuickContactTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB0E4B56826E24158E2184B /* Pods_QuickContactTests.framework */; };
 		ED79B31610E4F200AFC555C3 /* Pods_QuickContactUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F32C333A87EE3F6CD92D57A /* Pods_QuickContactUITests.framework */; };
@@ -41,7 +45,7 @@
 		05030DCDCD680A6A12E54BC1 /* Pods-QuickContact.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickContact.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickContact/Pods-QuickContact.debug.xcconfig"; sourceTree = "<group>"; };
 		0AAB61CE1E9E70C700A0F424 /* QuickContact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickContact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AAB61D11E9E70C700A0F424 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AAB61D31E9E70C700A0F424 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0AAB61D31E9E70C700A0F424 /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		0AAB61D61E9E70C700A0F424 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AAB61D91E9E70C700A0F424 /* QuickContact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuickContact.xcdatamodel; sourceTree = "<group>"; };
 		0AAB61DB1E9E70C700A0F424 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +57,10 @@
 		0AAB61F01E9E70C700A0F424 /* QuickContactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickContactUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AAB61F41E9E70C700A0F424 /* QuickContactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickContactUITests.swift; sourceTree = "<group>"; };
 		0AAB61F61E9E70C700A0F424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ABD81141EA071BA002C3B1C /* ContactDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
+		0ABD811A1EA0CE1E002C3B1C /* ContactData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactData.swift; sourceTree = "<group>"; };
+		0ABD811D1EA0D2DB002C3B1C /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		0ABD811F1EA0D320002C3B1C /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		19B1BEA909B6AED3C09DC3FA /* Pods_QuickContact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickContact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F32C333A87EE3F6CD92D57A /* Pods_QuickContactUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickContactUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4059DB10B4A7277538EE86AE /* Pods-QuickContactTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickContactTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickContactTests/Pods-QuickContactTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,8 +124,10 @@
 		0AAB61D01E9E70C700A0F424 /* QuickContact */ = {
 			isa = PBXGroup;
 			children = (
+				0ABD81221EA0D38D002C3B1C /* Data */,
+				0ABD811C1EA0D2BC002C3B1C /* Contact List */,
+				0ABD81211EA0D33C002C3B1C /* Contact Detail */,
 				0AAB61D11E9E70C700A0F424 /* AppDelegate.swift */,
-				0AAB61D31E9E70C700A0F424 /* ViewController.swift */,
 				0AAB61D51E9E70C700A0F424 /* Main.storyboard */,
 				0AAB61DB1E9E70C700A0F424 /* Assets.xcassets */,
 				0AAB61DD1E9E70C700A0F424 /* LaunchScreen.storyboard */,
@@ -143,6 +153,32 @@
 				0AAB61F61E9E70C700A0F424 /* Info.plist */,
 			);
 			path = QuickContactUITests;
+			sourceTree = "<group>";
+		};
+		0ABD811C1EA0D2BC002C3B1C /* Contact List */ = {
+			isa = PBXGroup;
+			children = (
+				0ABD811D1EA0D2DB002C3B1C /* ContactTableViewCell.swift */,
+				0ABD811F1EA0D320002C3B1C /* ContactTableViewController.swift */,
+				0AAB61D31E9E70C700A0F424 /* ContactListViewController.swift */,
+			);
+			name = "Contact List";
+			sourceTree = "<group>";
+		};
+		0ABD81211EA0D33C002C3B1C /* Contact Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0ABD81141EA071BA002C3B1C /* ContactDetailViewController.swift */,
+			);
+			name = "Contact Detail";
+			sourceTree = "<group>";
+		};
+		0ABD81221EA0D38D002C3B1C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0ABD811A1EA0CE1E002C3B1C /* ContactData.swift */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		7FEC0E8BD28CCE1C5EBB0DEA /* Frameworks */ = {
@@ -449,9 +485,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AAB61D41E9E70C700A0F424 /* ViewController.swift in Sources */,
+				0ABD811E1EA0D2DB002C3B1C /* ContactTableViewCell.swift in Sources */,
+				0AAB61D41E9E70C700A0F424 /* ContactListViewController.swift in Sources */,
 				0AAB61D21E9E70C700A0F424 /* AppDelegate.swift in Sources */,
+				0ABD81151EA071BA002C3B1C /* ContactDetailViewController.swift in Sources */,
+				0ABD81201EA0D320002C3B1C /* ContactTableViewController.swift in Sources */,
 				0AAB61DA1E9E70C700A0F424 /* QuickContact.xcdatamodeld in Sources */,
+				0ABD811B1EA0CE1E002C3B1C /* ContactData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
