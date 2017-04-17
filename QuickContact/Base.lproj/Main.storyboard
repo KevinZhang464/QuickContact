@@ -43,6 +43,9 @@
                                             <rect key="frame" x="16" y="7" width="110" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Refresh"/>
+                                            <connections>
+                                                <action selector="refreshBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eH1-bV-pjd"/>
+                                            </connections>
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="MpG-gc-JmE"/>
@@ -202,6 +205,9 @@
                             <outlet property="delegate" destination="zGE-gs-H8H" id="XNk-fz-9zL"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="QtW-iz-ktR" id="gIU-6d-Voe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Re9-J5-KHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

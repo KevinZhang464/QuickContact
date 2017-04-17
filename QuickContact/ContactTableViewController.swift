@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ContactTableViewController: UITableViewController {
     
@@ -16,6 +17,7 @@ class ContactTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        tableViewData = getContactDataList()
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,7 +41,22 @@ class ContactTableViewController: UITableViewController {
         return cell
     }
     
-    public func setTableViewData(contactDataList: [EmployeeMO]) {
-        tableViewData = contactDataList
+    func getContactDataList() -> [EmployeeMO] {
+        let moc = coreDataStack.persistentContainer.viewContext
+        let employeesFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Employee")
+        
+        do {
+            let fetchedEmployees = try moc.fetch(employeesFetch) as! [EmployeeMO]
+            return fetchedEmployees
+        } catch {
+            fatalError("Failed to fetch employees: \(error)")
+        }
+        
+        return Array<EmployeeMO>()
+    }
+    
+    public func reloadTableViewData() {
+        tableViewData = getContactDataList()
+        tableView.reloadData()
     }
 }
