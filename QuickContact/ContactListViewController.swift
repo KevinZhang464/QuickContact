@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class ContactListViewController: UIViewController {
+    
     private var contactTableViewController: ContactTableViewController!
+    lazy var coreDataStack = CoreDataStack()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +28,35 @@ class ContactListViewController: UIViewController {
         if (segue.identifier == "EmbedSegue") {
             let vc = segue.destination as? ContactTableViewController
             contactTableViewController = vc
-            let contactDataList: Array<ContactData>! = getContactDataList()
+            let contactDataList: [EmployeeMO]! = getContactDataList()
             contactTableViewController.setTableViewData(contactDataList: contactDataList)
         }
     }
     
-    func getContactDataList() -> Array<ContactData> {
-        var contactDataList: Array<ContactData>! = []
-        for i in 0...9 {
-            let contactData: ContactData! = ContactData()
-            contactData.displayName = String(format: "%@ %d", "kevin", i)
-            contactData.phoneNumber = String(format: "%@%d", "1351351135", i)
-            contactDataList.append(contactData)
+    func getContactDataList() -> [EmployeeMO] {
+        let moc = coreDataStack.persistentContainer.viewContext
+        let employeesFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Employee")
+        
+        do {
+            let fetchedEmployees = try moc.fetch(employeesFetch) as! [EmployeeMO]
+            return fetchedEmployees
+        } catch {
+            fatalError("Failed to fetch employees: \(error)")
         }
-        return contactDataList
+        
+        return Array<EmployeeMO>()
+    }
+    
+    func setContactDataList() {
+        let moc = coreDataStack.persistentContainer.viewContext
+        for i in 0...9 {
+            let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: moc) as! EmployeeMO
+            
+            employee.displayName = String(format: "%@ %d", "kevin", i)
+            employee.phoneNumber = String(format: "%@%d", "1351351135", i)
+            coreDataStack.saveContext()
+        }
+
     }
 
 }

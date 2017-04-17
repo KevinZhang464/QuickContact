@@ -10,7 +10,8 @@ import UIKit
 
 class ContactTableViewController: UITableViewController {
     
-    var tableViewData: Array<ContactData>! = []
+    var tableViewData: [EmployeeMO]! = []
+    lazy var coreDataStack = CoreDataStack()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class ContactTableViewController: UITableViewController {
         return cell
     }
     
-    public func setTableViewData(contactDataList: Array<ContactData>) {
+    public func setTableViewData(contactDataList: [EmployeeMO]) {
         tableViewData = contactDataList
     }
 }
