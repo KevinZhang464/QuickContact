@@ -19,6 +19,7 @@
 		0ABD811B1EA0CE1E002C3B1C /* ContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD811A1EA0CE1E002C3B1C /* ContactData.swift */; };
 		0ABD811E1EA0D2DB002C3B1C /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD811D1EA0D2DB002C3B1C /* ContactTableViewCell.swift */; };
 		0ABD81201EA0D320002C3B1C /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD811F1EA0D320002C3B1C /* ContactTableViewController.swift */; };
+		0ABD81301EA4A191002C3B1C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD812F1EA4A191002C3B1C /* CoreDataStack.swift */; };
 		65F29F489296A0E2442866B8 /* Pods_QuickContact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B1BEA909B6AED3C09DC3FA /* Pods_QuickContact.framework */; };
 		C129A7ACCC949B8F490AC290 /* Pods_QuickContactTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB0E4B56826E24158E2184B /* Pods_QuickContactTests.framework */; };
 		ED79B31610E4F200AFC555C3 /* Pods_QuickContactUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F32C333A87EE3F6CD92D57A /* Pods_QuickContactUITests.framework */; };
@@ -61,6 +62,7 @@
 		0ABD811A1EA0CE1E002C3B1C /* ContactData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactData.swift; sourceTree = "<group>"; };
 		0ABD811D1EA0D2DB002C3B1C /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		0ABD811F1EA0D320002C3B1C /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
+		0ABD812F1EA4A191002C3B1C /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		19B1BEA909B6AED3C09DC3FA /* Pods_QuickContact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickContact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F32C333A87EE3F6CD92D57A /* Pods_QuickContactUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickContactUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4059DB10B4A7277538EE86AE /* Pods-QuickContactTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickContactTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickContactTests/Pods-QuickContactTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				0ABD811A1EA0CE1E002C3B1C /* ContactData.swift */,
+				0ABD812F1EA4A191002C3B1C /* CoreDataStack.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				0ABD81201EA0D320002C3B1C /* ContactTableViewController.swift in Sources */,
 				0AAB61DA1E9E70C700A0F424 /* QuickContact.xcdatamodeld in Sources */,
 				0ABD811B1EA0CE1E002C3B1C /* ContactData.swift in Sources */,
+				0ABD81301EA4A191002C3B1C /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
