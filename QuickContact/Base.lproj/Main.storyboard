@@ -32,7 +32,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0V-4r-3Ey">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <connections>
-                                    <segue destination="zGE-gs-H8H" kind="embed" id="CPP-Ki-WFy"/>
+                                    <segue destination="zGE-gs-H8H" kind="embed" identifier="EmbedSegue" id="CPP-Ki-WFy"/>
                                 </connections>
                             </containerView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gd6-e3-KD8">

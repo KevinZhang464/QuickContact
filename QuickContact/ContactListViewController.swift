@@ -9,6 +9,7 @@
 import UIKit
 
 class ContactListViewController: UIViewController {
+    private var contactTableViewController: ContactTableViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,12 @@ class ContactListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "EmbedSegue") {
+            let vc = segue.destination as? ContactTableViewController
+            self.contactTableViewController = vc
+        }
+    }
 
 }
 
