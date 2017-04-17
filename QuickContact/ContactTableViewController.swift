@@ -15,13 +15,6 @@ class ContactTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        for i in 0...9 {
-            let contactData: ContactData! = ContactData()
-            contactData.displayName = String(format: "%@%d", "kevin ", i)
-            contactData.phoneNumber = String(format: "%@%d", "1351351135", i)
-            tableViewData.append(contactData)
-        }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,4 +38,7 @@ class ContactTableViewController: UITableViewController {
         return cell
     }
     
+    public func setTableViewData(contactDataList: Array<ContactData>) {
+        tableViewData = contactDataList
+    }
 }

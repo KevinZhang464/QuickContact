@@ -24,9 +24,21 @@ class ContactListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "EmbedSegue") {
             let vc = segue.destination as? ContactTableViewController
-            self.contactTableViewController = vc
+            contactTableViewController = vc
+            let contactDataList: Array<ContactData>! = getContactDataList()
+            contactTableViewController.setTableViewData(contactDataList: contactDataList)
         }
+    }
+    
+    func getContactDataList() -> Array<ContactData> {
+        var contactDataList: Array<ContactData>! = []
+        for i in 0...9 {
+            let contactData: ContactData! = ContactData()
+            contactData.displayName = String(format: "%@ %d", "kevin", i)
+            contactData.phoneNumber = String(format: "%@%d", "1351351135", i)
+            contactDataList.append(contactData)
+        }
+        return contactDataList
     }
 
 }
-
