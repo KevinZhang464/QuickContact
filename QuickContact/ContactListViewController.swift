@@ -105,7 +105,15 @@ class ContactListViewController: UIViewController {
     }
     
     func saveAllContact() {
-        contactHelper.saveContact(givenName: "Kevin", familyName: "Jhon", phoneNumber: "13513511351")
+        let employees = employeeDataHelper.getAllEmployees()
+        for employee in employees {
+            let givenName = employee.givenName
+            let familyName = employee.familyName
+            let phoneNumber = employee.phoneNumber
+            contactHelper.saveContact(givenName: givenName,
+                                      familyName: familyName,
+                                      phoneNumber: phoneNumber)
+        }
     }
 
 }
