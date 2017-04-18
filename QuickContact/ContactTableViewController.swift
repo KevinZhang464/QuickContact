@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import MessageUI
 
-class ContactTableViewController: UITableViewController {
+class ContactTableViewController: UITableViewController, MFMessageComposeViewControllerDelegate {
     
     var tableViewData: [EmployeeMO]! = []
     lazy var coreDataStack = CoreDataStack()
@@ -37,8 +38,26 @@ class ContactTableViewController: UITableViewController {
         let contactData = tableViewData[indexPath.row]
         cell.nameLabel?.text = "\(contactData.givenName!) \(contactData.familyName!)"
         cell.phoneNumberLabel?.text = contactData.phoneNumber
+        cell.viewController = self
         
         return cell
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        switch (result.hashValue) {
+        case MessageComposeResult.cancelled.hashValue:
+            print("Message was cancelled")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.failed.hashValue:
+            print("Message failed")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.sent.hashValue:
+            print("Message was sent")
+            self.dismiss(animated: true, completion: nil)
+        default:
+            break;
+        }
     }
     
     func getContactDataList() -> [EmployeeMO] {
@@ -58,5 +77,15 @@ class ContactTableViewController: UITableViewController {
     public func reloadTableViewData() {
         tableViewData = getContactDataList()
         tableView.reloadData()
+    }
+
+    public func sendMessage(phoneNumber: String!) {
+        if (MFMessageComposeViewController.canSendText()) {
+            let messageVC = MFMessageComposeViewController()
+            messageVC.body = "Enter a message";
+            messageVC.recipients = [phoneNumber]
+            messageVC.messageComposeDelegate = self
+            self.present(messageVC, animated: false, completion: nil)
+        }
     }
 }
