@@ -7,22 +7,20 @@
 //
 
 import UIKit
-import CoreData
 import Alamofire
 import Contacts
 
 class ContactListViewController: UIViewController {
     
     private var contactTableViewController: ContactTableViewController!
-    lazy var coreDataStack = CoreDataStack()
+    var employeeDataHelper: EmployeeDataHelper! = EmployeeDataHelper()
     var contactStore = CNContactStore()
-    var contacts = [CNContact]()
 
     @IBAction func exportBtnClicked(_ sender: Any) {
         requestForAccess { (accessGranted) -> Void in
             if accessGranted {
                 print("kevin: get premiss success")
-                self.getAllContacts()
+                self.saveAllContact()
             }
         }
     }
@@ -48,33 +46,15 @@ class ContactListViewController: UIViewController {
         }
     }
     
-    func clearContactDataList() {
-        let moc = coreDataStack.persistentContainer.viewContext
-        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Employee")
-        let request = NSBatchDeleteRequest(fetchRequest: fetch)
-        
-        do {
-            try moc.execute(request)
-        } catch let error as NSError {
-            fatalError("Unresolved error \(error), \(error.userInfo)")
-        }
-    }
-    
     func setContactDataList(json: [NSDictionary]) {
-        
-        let moc = coreDataStack.persistentContainer.viewContext
-        
         for dict in json {
             let givenName = dict.object(forKey: "first_name") as! String
             let familyName = dict.object(forKey: "last_name") as! String
             let phoneNumber = dict.object(forKey: "phone_number") as! String
             print("\(givenName) \(familyName): \(phoneNumber)")
-            let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: moc) as! EmployeeMO
-            
-            employee.givenName = givenName
-            employee.familyName = familyName
-            employee.phoneNumber = phoneNumber
-            coreDataStack.saveContext()
+            self.employeeDataHelper.saveEmployee(givenName: givenName,
+                                                 familyName: familyName,
+                                                 phoneNumber: phoneNumber)
         }
         
         self.contactTableViewController.reloadTableViewData()
@@ -103,7 +83,7 @@ class ContactListViewController: UIViewController {
             }
             
             let value = response.result.value as! [NSDictionary]
-            self.clearContactDataList()
+            self.employeeDataHelper.clearAllEmployees()
             self.setContactDataList(json: value)
         }
     }
@@ -145,7 +125,7 @@ class ContactListViewController: UIViewController {
         }
     }
     
-    func getAllContacts () {
+    func getAllContacts () -> [CNContact] {
         
         let keysToFetch = [
             CNContactGivenNameKey,
@@ -153,13 +133,13 @@ class ContactListViewController: UIViewController {
             CNContactPhoneNumbersKey
         ]
         let request = CNContactFetchRequest(keysToFetch: keysToFetch as [CNKeyDescriptor])
-        self.contacts = []
+        var contacts : [CNContact]! = [CNContact]()
         do {
             try self.contactStore.enumerateContacts(with: request) { contact, stop in
-                self.contacts.append(contact)
+                contacts.append(contact)
             }
             
-            for contact in self.contacts {
+            for contact in contacts {
                 print("contact:\(contact)")
                 
                 let firstName=String(format:"%@",contact.givenName)
@@ -178,16 +158,35 @@ class ContactListViewController: UIViewController {
                 // get one phone number
                 let MobNumVar = (contact.phoneNumbers[0].value ).value(forKey: "digits") as! String
                 print("mob no:\(MobNumVar)")
-                
             }
-            
             DispatchQueue.main.async(execute: {
             })
-            
-            
-        } catch {
-            print(error)
+        } catch let error as NSError {
+            fatalError("Unresolved error \(error), \(error.userInfo)")
         }
+        return contacts
+    }
+
+    func saveContact (givenName: String!, familyName: String!, phoneNumber: String!) {
+        let contact = CNMutableContact()
+        contact.givenName = givenName
+        contact.familyName = familyName
+        contact.phoneNumbers = [CNLabeledValue(
+            label:CNLabelPhoneNumberiPhone,
+            value:CNPhoneNumber(stringValue:phoneNumber))]
+        
+        let store = CNContactStore()
+        let saveRequest = CNSaveRequest()
+        saveRequest.add(contact, toContainerWithIdentifier:nil)
+        do {
+            try store.execute(saveRequest)
+        } catch let error as NSError {
+            fatalError("Unresolved error \(error), \(error.userInfo)")
+        }
+    }
+    
+    func saveAllContact() {
+        saveContact(givenName: "Kevin", familyName: "Jhon", phoneNumber: "13513511351")
     }
 
 }

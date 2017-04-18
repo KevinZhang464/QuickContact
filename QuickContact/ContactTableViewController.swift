@@ -7,18 +7,17 @@
 //
 
 import UIKit
-import CoreData
 import MessageUI
 
 class ContactTableViewController: UITableViewController, MFMessageComposeViewControllerDelegate {
     
     var tableViewData: [EmployeeMO]! = []
-    lazy var coreDataStack = CoreDataStack()
+    var employeeDataHelper: EmployeeDataHelper! = EmployeeDataHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableViewData = getContactDataList()
+        tableViewData = employeeDataHelper.getAllEmployees()
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,23 +58,9 @@ class ContactTableViewController: UITableViewController, MFMessageComposeViewCon
             break;
         }
     }
-    
-    func getContactDataList() -> [EmployeeMO] {
-        let moc = coreDataStack.persistentContainer.viewContext
-        let employeesFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Employee")
-        
-        do {
-            let fetchedEmployees = try moc.fetch(employeesFetch) as! [EmployeeMO]
-            return fetchedEmployees
-        } catch {
-            fatalError("Failed to fetch employees: \(error)")
-        }
-        
-        return Array<EmployeeMO>()
-    }
-    
+
     public func reloadTableViewData() {
-        tableViewData = getContactDataList()
+        tableViewData = employeeDataHelper.getAllEmployees()
         tableView.reloadData()
     }
 
