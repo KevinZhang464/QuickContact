@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import Contacts
 
 class ContactListViewController: UIViewController {
     
@@ -19,8 +18,8 @@ class ContactListViewController: UIViewController {
     @IBAction func exportBtnClicked(_ sender: Any) {
         contactHelper.requestForAccess(completionHandler: { (accessGranted) -> Void in
             if accessGranted {
-            print("kevin: get premiss success")
-            self.saveAllContact()
+                print("kevin: get premiss success")
+                self.importContactsToDevice()
             }
         }, showAlertHandler: { () -> Void in
             DispatchQueue.main.async(execute: { () -> Void in
@@ -104,16 +103,9 @@ class ContactListViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func saveAllContact() {
+    func importContactsToDevice() {
         let employees = employeeDataHelper.getAllEmployees()
-        for employee in employees {
-            let givenName = employee.givenName
-            let familyName = employee.familyName
-            let phoneNumber = employee.phoneNumber
-            contactHelper.saveContact(givenName: givenName,
-                                      familyName: familyName,
-                                      phoneNumber: phoneNumber)
-        }
+        contactHelper.saveContactWithoutDuplicate(employees: employees)
     }
 
 }

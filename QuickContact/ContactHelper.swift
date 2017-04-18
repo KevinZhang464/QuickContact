@@ -36,7 +36,12 @@ class ContactHelper: NSObject {
         }
     }
     
-    func getAllContacts () -> [CNContact] {
+    func saveContactWithoutDuplicate (employees: [EmployeeMO]) {
+        var newPhoneNumbers = [String]()
+        for employee in employees {
+            let phoneNumber: String! = employee.phoneNumber
+            newPhoneNumbers.append(phoneNumber)
+        }
         let keysToFetch = [
             CNContactGivenNameKey,
             CNContactFamilyNameKey,
@@ -59,22 +64,30 @@ class ContactHelper: NSObject {
                 print("last:\(lastName)")
                 
                 //get all phone numbers
-                // for ContctNumVar: CNLabeledValue in contact.phoneNumbers
-                // {
-                //     let MobNumVar  = (ContctNumVar.value ).value(forKey: "digits") as? String
-                //     print("ph no:\(MobNumVar!)")
-                // }
-                
-                // get one phone number
-                let MobNumVar = (contact.phoneNumbers[0].value ).value(forKey: "digits") as! String
-                print("mob no:\(MobNumVar)")
+                for contctNumVar: CNLabeledValue in contact.phoneNumbers
+                {
+                    let mobNumVar = (contctNumVar.value ).value(forKey: "digits") as! String
+                    print("ph no:\(mobNumVar)")
+                    if let index = newPhoneNumbers.index(of: mobNumVar) {
+                        newPhoneNumbers.remove(at: index)
+                    }
+                }
             }
             DispatchQueue.main.async(execute: {
             })
         } catch let error as NSError {
             fatalError("Unresolved error \(error), \(error.userInfo)")
         }
-        return contacts
+        for employee in employees {
+            if newPhoneNumbers.index(of: employee.phoneNumber!) != nil {
+                let givenName = employee.givenName
+                let familyName = employee.familyName
+                let phoneNumber = employee.phoneNumber
+                self.saveContact(givenName: givenName,
+                                 familyName: familyName,
+                                 phoneNumber: phoneNumber)
+            }
+        }
     }
     
     func saveContact (givenName: String!, familyName: String!, phoneNumber: String!) {
