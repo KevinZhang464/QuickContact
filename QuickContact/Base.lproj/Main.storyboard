@@ -137,22 +137,25 @@
                                             <rect key="frame" x="8" y="8" width="359" height="58.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pg2-1D-2X4" userLabel="Detail View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="269.5" height="58.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="215.5" height="58.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V09-Vm-m7W" userLabel="Name">
-                                                            <rect key="frame" x="0.0" y="0.0" width="269.5" height="29.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="215.5" height="29.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxxxxxxxxxx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxz-ny-Qg7" userLabel="Phone Number">
-                                                            <rect key="frame" x="0.0" y="29.5" width="269.5" height="29"/>
+                                                            <rect key="frame" x="0.0" y="29.5" width="215.5" height="29"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYz-Aw-LRl" userLabel="Show Detail Button">
-                                                            <rect key="frame" x="0.0" y="0.0" width="269.5" height="58.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="215.5" height="58.5"/>
+                                                            <connections>
+                                                                <action selector="detailClicked:" destination="m3L-Rj-4L2" eventType="touchUpInside" id="NlS-N6-RXG"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -171,8 +174,15 @@
                                                         <constraint firstItem="cxz-ny-Qg7" firstAttribute="centerX" secondItem="pg2-1D-2X4" secondAttribute="centerX" id="xwo-S0-nqg"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDx-kC-5WL" userLabel="Call Button">
+                                                    <rect key="frame" x="215" y="0.0" width="72" height="58.5"/>
+                                                    <state key="normal" title="Call"/>
+                                                    <connections>
+                                                        <action selector="callBtnClicked:" destination="m3L-Rj-4L2" eventType="touchUpInside" id="Vv3-kR-rT4"/>
+                                                    </connections>
+                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ2-ad-JfP" userLabel="SMS Button">
-                                                    <rect key="frame" x="269.5" y="0.0" width="89.5" height="58.5"/>
+                                                    <rect key="frame" x="287" y="0.0" width="72" height="58.5"/>
                                                     <state key="normal" title="SMS"/>
                                                     <connections>
                                                         <action selector="smsBtnClicked:" destination="m3L-Rj-4L2" eventType="touchUpInside" id="KTy-zg-8ly"/>
@@ -181,12 +191,16 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="pg2-1D-2X4" firstAttribute="width" secondItem="iUg-b1-v0q" secondAttribute="width" multiplier="0.75" id="1HT-8E-a82"/>
+                                                <constraint firstItem="pg2-1D-2X4" firstAttribute="width" secondItem="iUg-b1-v0q" secondAttribute="width" multiplier="0.6" id="1HT-8E-a82"/>
                                                 <constraint firstItem="pg2-1D-2X4" firstAttribute="top" secondItem="iUg-b1-v0q" secondAttribute="top" id="2P1-d7-BLc"/>
+                                                <constraint firstItem="uDx-kC-5WL" firstAttribute="top" secondItem="iUg-b1-v0q" secondAttribute="top" id="5h5-WM-Vcb"/>
+                                                <constraint firstItem="uDx-kC-5WL" firstAttribute="height" secondItem="iUg-b1-v0q" secondAttribute="height" id="LAB-rk-zeS"/>
+                                                <constraint firstItem="uDx-kC-5WL" firstAttribute="width" secondItem="iUg-b1-v0q" secondAttribute="width" multiplier="0.2" id="TY5-Dq-b5q"/>
                                                 <constraint firstItem="pg2-1D-2X4" firstAttribute="leading" secondItem="iUg-b1-v0q" secondAttribute="leading" id="WD7-kV-mGQ"/>
                                                 <constraint firstItem="KZ2-ad-JfP" firstAttribute="height" secondItem="iUg-b1-v0q" secondAttribute="height" id="egl-98-XGG"/>
                                                 <constraint firstAttribute="trailing" secondItem="KZ2-ad-JfP" secondAttribute="trailing" id="i1c-jE-PfU"/>
-                                                <constraint firstItem="KZ2-ad-JfP" firstAttribute="width" secondItem="iUg-b1-v0q" secondAttribute="width" multiplier="0.25" id="jgL-ty-aGA"/>
+                                                <constraint firstItem="KZ2-ad-JfP" firstAttribute="width" secondItem="iUg-b1-v0q" secondAttribute="width" multiplier="0.2" id="jgL-ty-aGA"/>
+                                                <constraint firstItem="uDx-kC-5WL" firstAttribute="trailing" secondItem="KZ2-ad-JfP" secondAttribute="leading" id="plr-qk-Grp"/>
                                                 <constraint firstItem="pg2-1D-2X4" firstAttribute="height" secondItem="iUg-b1-v0q" secondAttribute="height" id="w59-zF-TJt"/>
                                                 <constraint firstItem="KZ2-ad-JfP" firstAttribute="top" secondItem="iUg-b1-v0q" secondAttribute="top" id="yca-Qv-iuW"/>
                                             </constraints>

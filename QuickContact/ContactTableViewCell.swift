@@ -20,4 +20,14 @@ class ContactTableViewCell: UITableViewCell {
         viewController?.sendMessage(phoneNumber: phoneNumberLabel.text)
     }
     
+    @IBAction func detailClicked(_ sender: Any) {
+    }
+    
+    @IBAction func callBtnClicked(_ sender: Any) {
+        let number = phoneNumberLabel.text!
+        guard let url = URL(string: "telprompt://" + number) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
 }
