@@ -14,15 +14,20 @@ class ContactListViewController: UIViewController {
     
     private var contactTableViewController: ContactTableViewController!
     var employeeDataHelper: EmployeeDataHelper! = EmployeeDataHelper()
-    var contactStore = CNContactStore()
+    var contactHelper: ContactHelper! = ContactHelper()
 
     @IBAction func exportBtnClicked(_ sender: Any) {
-        requestForAccess { (accessGranted) -> Void in
+        contactHelper.requestForAccess(completionHandler: { (accessGranted) -> Void in
             if accessGranted {
-                print("kevin: get premiss success")
-                self.saveAllContact()
+            print("kevin: get premiss success")
+            self.saveAllContact()
             }
-        }
+        }, showAlertHandler: { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
+                let message = "Please allow the app to access your contacts through the Settings."
+                self.showMessage(message: message)
+            })
+        })
     }
 
     @IBAction func refreshBtnClicked(_ sender: Any) {
@@ -99,94 +104,8 @@ class ContactListViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
-        let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
-        
-        switch authorizationStatus {
-        case .authorized:
-            completionHandler(true)
-            
-        case .denied, .notDetermined:
-            self.contactStore.requestAccess(for: CNEntityType.contacts, completionHandler: { (access, accessError) -> Void in
-                if access {
-                    completionHandler(access)
-                } else {
-                    if authorizationStatus == CNAuthorizationStatus.denied {
-                        DispatchQueue.main.async(execute: { () -> Void in
-                            let message = "\(accessError!.localizedDescription)\n\nPlease allow the app to access your contacts through the Settings."
-                            self.showMessage(message: message)
-                        })
-                    }
-                }
-            })
-            
-        default:
-            completionHandler(false)
-        }
-    }
-    
-    func getAllContacts () -> [CNContact] {
-        
-        let keysToFetch = [
-            CNContactGivenNameKey,
-            CNContactFamilyNameKey,
-            CNContactPhoneNumbersKey
-        ]
-        let request = CNContactFetchRequest(keysToFetch: keysToFetch as [CNKeyDescriptor])
-        var contacts : [CNContact]! = [CNContact]()
-        do {
-            try self.contactStore.enumerateContacts(with: request) { contact, stop in
-                contacts.append(contact)
-            }
-            
-            for contact in contacts {
-                print("contact:\(contact)")
-                
-                let firstName=String(format:"%@",contact.givenName)
-                print("first:\(firstName)")
-                
-                let lastName=String(format:"%@",contact.familyName)
-                print("last:\(lastName)")
-                
-                //get all phone numbers
-                // for ContctNumVar: CNLabeledValue in contact.phoneNumbers
-                // {
-                //     let MobNumVar  = (ContctNumVar.value ).value(forKey: "digits") as? String
-                //     print("ph no:\(MobNumVar!)")
-                // }
-                
-                // get one phone number
-                let MobNumVar = (contact.phoneNumbers[0].value ).value(forKey: "digits") as! String
-                print("mob no:\(MobNumVar)")
-            }
-            DispatchQueue.main.async(execute: {
-            })
-        } catch let error as NSError {
-            fatalError("Unresolved error \(error), \(error.userInfo)")
-        }
-        return contacts
-    }
-
-    func saveContact (givenName: String!, familyName: String!, phoneNumber: String!) {
-        let contact = CNMutableContact()
-        contact.givenName = givenName
-        contact.familyName = familyName
-        contact.phoneNumbers = [CNLabeledValue(
-            label:CNLabelPhoneNumberiPhone,
-            value:CNPhoneNumber(stringValue:phoneNumber))]
-        
-        let store = CNContactStore()
-        let saveRequest = CNSaveRequest()
-        saveRequest.add(contact, toContainerWithIdentifier:nil)
-        do {
-            try store.execute(saveRequest)
-        } catch let error as NSError {
-            fatalError("Unresolved error \(error), \(error.userInfo)")
-        }
-    }
-    
     func saveAllContact() {
-        saveContact(givenName: "Kevin", familyName: "Jhon", phoneNumber: "13513511351")
+        contactHelper.saveContact(givenName: "Kevin", familyName: "Jhon", phoneNumber: "13513511351")
     }
 
 }
