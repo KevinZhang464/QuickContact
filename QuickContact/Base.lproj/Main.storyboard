@@ -56,6 +56,9 @@
                                             <rect key="frame" x="249" y="7" width="110" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Add to Contact"/>
+                                            <connections>
+                                                <action selector="exportBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BgO-Gz-igA"/>
+                                            </connections>
                                         </button>
                                     </barButtonItem>
                                 </items>
