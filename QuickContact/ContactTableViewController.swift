@@ -35,7 +35,7 @@ class ContactTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactTableViewCell", for: indexPath) as! ContactTableViewCell
         
         let contactData = tableViewData[indexPath.row]
-        cell.nameLabel?.text = contactData.displayName
+        cell.nameLabel?.text = "\(contactData.givenName!) \(contactData.familyName!)"
         cell.phoneNumberLabel?.text = contactData.phoneNumber
         
         return cell

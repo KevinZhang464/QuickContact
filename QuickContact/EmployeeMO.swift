@@ -13,7 +13,8 @@ import Foundation
 @objc(EmployeeMO)
 class EmployeeMO: NSManagedObject {
     
-    @NSManaged var displayName: String?
+    @NSManaged var givenName: String?
+    @NSManaged var familyName: String?
     @NSManaged var phoneNumber: String?
     
 }

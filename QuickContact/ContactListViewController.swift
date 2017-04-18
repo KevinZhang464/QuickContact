@@ -53,13 +53,15 @@ class ContactListViewController: UIViewController {
         let moc = coreDataStack.persistentContainer.viewContext
         
         for dict in json {
-            let name = dict.object(forKey: "name") as! String
-            let phone = dict.object(forKey: "phone") as! String
-            print(name + ": " + phone)
+            let givenName = dict.object(forKey: "first_name") as! String
+            let familyName = dict.object(forKey: "last_name") as! String
+            let phoneNumber = dict.object(forKey: "phone_number") as! String
+            print("\(givenName) \(familyName): \(phoneNumber)")
             let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: moc) as! EmployeeMO
             
-            employee.displayName = name
-            employee.phoneNumber = phone
+            employee.givenName = givenName
+            employee.familyName = familyName
+            employee.phoneNumber = phoneNumber
             coreDataStack.saveContext()
         }
         
