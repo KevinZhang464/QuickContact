@@ -17,7 +17,8 @@ class DetailViewController: UIViewController {
     
     @IBAction func buttonClicked(_ sender: UIButton) {
         print("back button clicked:")
-        dismiss(animated: true, completion: nil)
+        // dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
