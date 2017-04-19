@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EyQ-JE-Y3Q">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Contact List View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="Qmc-bg-bK3">
+            <objects>
+                <navigationController id="EyQ-JE-Y3Q" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NNd-nN-j0Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DEW-sX-qNw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bI8-jI-D4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="25" y="-739"/>
+        </scene>
+        <!--Contact List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ContactListViewController" customModule="QuickContact" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,12 +39,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8D1-a1-OTx">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Contact List" id="bUa-Ob-PPU"/>
-                                </items>
-                            </navigationBar>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0V-4r-3Ey">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <connections>
@@ -68,18 +78,16 @@
                         <constraints>
                             <constraint firstItem="e0V-4r-3Ey" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="0a9-dE-HdF"/>
                             <constraint firstItem="gd6-e3-KD8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4aa-JH-GgE"/>
-                            <constraint firstItem="8D1-a1-OTx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EXK-Zv-eYW"/>
                             <constraint firstItem="gd6-e3-KD8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="HKY-Cz-nW5"/>
                             <constraint firstItem="e0V-4r-3Ey" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XAS-WJ-Mm6"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gd6-e3-KD8" secondAttribute="bottom" id="bFA-if-UWz"/>
-                            <constraint firstItem="e0V-4r-3Ey" firstAttribute="top" secondItem="8D1-a1-OTx" secondAttribute="bottom" id="bFj-L4-p08"/>
-                            <constraint firstItem="8D1-a1-OTx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="c9k-vW-zK1"/>
-                            <constraint firstItem="8D1-a1-OTx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="h6j-lu-Qu8"/>
+                            <constraint firstItem="e0V-4r-3Ey" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nJS-ou-xKD"/>
                             <constraint firstItem="e0V-4r-3Ey" firstAttribute="bottom" secondItem="gd6-e3-KD8" secondAttribute="top" id="uqp-Qv-pXm"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Contact List" id="j1n-r5-S15"/>
                     <connections>
-                        <segue destination="hIV-gm-8Vj" kind="showDetail" identifier="showContactDetail" id="qnm-u6-VNa"/>
+                        <segue destination="4Se-qR-aRO" kind="showDetail" identifier="showContactDetail" id="99e-LX-pw7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -87,35 +95,22 @@
             <point key="canvasLocation" x="24.800000000000001" y="36.431784107946029"/>
         </scene>
         <!--Contact Detail View Controller-->
-        <scene sceneID="TOJ-5z-HVp">
+        <scene sceneID="ibq-db-vn4">
             <objects>
-                <viewController id="hIV-gm-8Vj" customClass="ContactDetailViewController" customModule="QuickContact" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4Se-qR-aRO" customClass="ContactDetailViewController" customModule="QuickContact" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DYN-hJ-phM"/>
-                        <viewControllerLayoutGuide type="bottom" id="YHB-6v-g1K"/>
+                        <viewControllerLayoutGuide type="top" id="Suh-Y8-yxx"/>
+                        <viewControllerLayoutGuide type="bottom" id="HkV-xe-wcN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qLV-nx-pWA">
+                    <view key="view" contentMode="scaleToFill" id="67a-vz-iGX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1MT-qV-eqx">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Contact Detail" id="gpA-fa-NIr"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="1MT-qV-eqx" firstAttribute="width" secondItem="qLV-nx-pWA" secondAttribute="width" id="hhJ-Hi-CdV"/>
-                            <constraint firstItem="1MT-qV-eqx" firstAttribute="top" secondItem="DYN-hJ-phM" secondAttribute="bottom" id="ltX-Jo-5JN"/>
-                            <constraint firstItem="1MT-qV-eqx" firstAttribute="centerX" secondItem="qLV-nx-pWA" secondAttribute="centerX" id="vHZ-Tc-I0g"/>
-                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5l7-vn-E1B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nDV-Ib-DS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818" y="36"/>
+            <point key="canvasLocation" x="937" y="36"/>
         </scene>
         <!--Contact Table View Controller-->
         <scene sceneID="a6c-xk-F91">
@@ -130,7 +125,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3L-Rj-4L2" id="qyQ-dD-P9L">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iUg-b1-v0q">
