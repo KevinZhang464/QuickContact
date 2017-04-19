@@ -21,6 +21,7 @@ class ContactTableViewCell: UITableViewCell {
     }
     
     @IBAction func detailClicked(_ sender: Any) {
+        viewController?.showContactDetail()
     }
     
     @IBAction func callBtnClicked(_ sender: Any) {

@@ -105,5 +105,8 @@ class ContactListViewController: UIViewController {
         let employees = employeeDataHelper.getAllEmployees()
         contactHelper.saveContactWithoutDuplicate(employees: employees)
     }
-
+    
+    public func showContactDetail() {
+        performSegue(withIdentifier: "showContactDetail", sender: self)
+    }
 }

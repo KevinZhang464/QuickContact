@@ -80,4 +80,10 @@ class ContactTableViewController: UITableViewController, MFMessageComposeViewCon
         }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
+
+    public func showContactDetail() {
+        let appDelegate  = UIApplication.shared.delegate as! AppDelegate
+        let viewController = appDelegate.window!.rootViewController as! ContactListViewController
+        viewController.showContactDetail()
+    }
 }
