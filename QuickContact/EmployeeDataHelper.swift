@@ -24,7 +24,7 @@ class EmployeeDataHelper: NSObject {
             fatalError("Failed to fetch employees: \(error)")
         }
         
-        return Array<EmployeeMO>()
+        return [EmployeeMO]()
     }
     
     func clearAllEmployees() {
