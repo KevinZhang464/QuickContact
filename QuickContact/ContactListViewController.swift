@@ -81,12 +81,10 @@ class ContactListViewController: UIViewController {
                 return
             }
             
-            guard ((response.result.value as? [NSDictionary]) != nil) else {
+            guard let value = response.result.value as? [NSDictionary] else {
                 print("Malformed data received from fetchAllRooms service")
                 return
             }
-            
-            let value = response.result.value as! [NSDictionary]
             self.employeeDataHelper.clearAllEmployees()
             self.setContactDataList(json: value)
         }
