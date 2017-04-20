@@ -44,7 +44,7 @@ class ContactListViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "EmbedSegue") {
+        if segue.identifier == "EmbedSegue" {
             let vc = segue.destination as? ContactTableViewController
             contactTableViewController = vc
         }
@@ -52,9 +52,12 @@ class ContactListViewController: UIViewController {
 
     func setContactDataList(json: [NSDictionary]) {
         for dict in json {
-            let givenName = dict.object(forKey: "first_name") as! String
-            let familyName = dict.object(forKey: "last_name") as! String
-            let phoneNumber = dict.object(forKey: "phone_number") as! String
+            guard let givenName = dict.object(forKey: "first_name") as? String,
+                let familyName = dict.object(forKey: "last_name") as? String,
+                let phoneNumber = dict.object(forKey: "phone_number") as? String else {
+                    print("json: error")
+                    continue
+            }
             print("\(givenName) \(familyName): \(phoneNumber)")
             self.employeeDataHelper.saveEmployee(givenName: givenName,
                                                  familyName: familyName,
@@ -91,7 +94,9 @@ class ContactListViewController: UIViewController {
     }
 
     func showMessage(message: String) {
-        let alertController = UIAlertController(title: "QuickContact", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: "QuickContact",
+                                                message: message,
+                                                preferredStyle: UIAlertControllerStyle.alert)
 
         let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (_) -> Void in
         }

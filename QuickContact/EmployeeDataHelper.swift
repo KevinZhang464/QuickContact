@@ -18,12 +18,13 @@ class EmployeeDataHelper: NSObject {
         let employeesFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Employee")
 
         do {
-            let fetchedEmployees = try moc.fetch(employeesFetch) as! [EmployeeMO]
+            guard let fetchedEmployees = try moc.fetch(employeesFetch) as? [EmployeeMO] else {
+                return [EmployeeMO]()
+            }
             return fetchedEmployees
         } catch {
             fatalError("Failed to fetch employees: \(error)")
         }
-
         return [EmployeeMO]()
     }
 
@@ -42,7 +43,10 @@ class EmployeeDataHelper: NSObject {
     func saveEmployee(givenName: String!, familyName: String!, phoneNumber: String!) {
         let moc = coreDataStack.persistentContainer.viewContext
 
-        let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: moc) as! EmployeeMO
+        guard let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee",
+                                                                 into: moc) as? EmployeeMO else {
+            return
+        }
         employee.givenName = givenName
         employee.familyName = familyName
         employee.phoneNumber = phoneNumber

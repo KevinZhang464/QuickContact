@@ -1,0 +1,6 @@
+disabled_rules:
+    #- force_cast
+included:
+  - QuickContact
+excluded:
+  - QuickContact/AppDelegate.swift

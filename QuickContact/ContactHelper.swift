@@ -13,7 +13,8 @@ class ContactHelper: NSObject {
 
     var contactStore = CNContactStore()
 
-    func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void, showAlertHandler: @escaping () -> Void) {
+    func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void,
+                          showAlertHandler: @escaping () -> Void) {
         let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
 
         switch authorizationStatus {
@@ -36,7 +37,7 @@ class ContactHelper: NSObject {
         }
     }
 
-    func saveContactWithoutDuplicate (employees: [EmployeeMO]) {
+    func saveContactWithoutDuplicate(employees: [EmployeeMO]) {
         var newPhoneNumbers = [String]()
         for employee in employees {
             let phoneNumber: String! = employee.phoneNumber
@@ -65,7 +66,9 @@ class ContactHelper: NSObject {
 
                 //get all phone numbers
                 for contctNumVar: CNLabeledValue in contact.phoneNumbers {
-                    let mobNumVar = (contctNumVar.value ).value(forKey: "digits") as! String
+                    guard let mobNumVar = (contctNumVar.value ).value(forKey: "digits") as? String else {
+                        continue
+                    }
                     print("ph no:\(mobNumVar)")
                     if let index = newPhoneNumbers.index(of: mobNumVar) {
                         newPhoneNumbers.remove(at: index)
@@ -89,7 +92,9 @@ class ContactHelper: NSObject {
         }
     }
 
-    func saveContact (givenName: String!, familyName: String!, phoneNumber: String!) {
+    func saveContact(givenName: String!,
+                     familyName: String!,
+                     phoneNumber: String!) {
         let contact = CNMutableContact()
         contact.givenName = givenName
         contact.familyName = familyName

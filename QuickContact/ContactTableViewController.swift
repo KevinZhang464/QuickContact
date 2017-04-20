@@ -25,14 +25,19 @@ class ContactTableViewController: UITableViewController, MFMessageComposeViewCon
         // Dispose of any resources that can be recreated.
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
         let number = tableViewData.count
         return number
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "contactTableViewCell", for: indexPath) as! ContactTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "contactTableViewCell",
+                                                       for: indexPath) as? ContactTableViewCell else {
+            return UITableViewCell()
+        }
 
         let contactData = tableViewData[indexPath.row]
         cell.nameLabel?.text = "\(contactData.givenName!) \(contactData.familyName!)"
@@ -42,9 +47,10 @@ class ContactTableViewController: UITableViewController, MFMessageComposeViewCon
         return cell
     }
 
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController,
+                                      didFinishWith result: MessageComposeResult) {
 
-        switch (result.hashValue) {
+        switch result.hashValue {
         case MessageComposeResult.cancelled.hashValue:
             print("Message was cancelled")
             self.dismiss(animated: true, completion: nil)
@@ -65,7 +71,7 @@ class ContactTableViewController: UITableViewController, MFMessageComposeViewCon
     }
 
     public func sendMessage(phoneNumber: String!) {
-        if (MFMessageComposeViewController.canSendText()) {
+        if MFMessageComposeViewController.canSendText() {
             let messageVC = MFMessageComposeViewController()
             messageVC.body = "Enter a message"
             messageVC.recipients = [phoneNumber]
