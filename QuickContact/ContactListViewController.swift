@@ -47,6 +47,7 @@ class ContactListViewController: UIViewController {
         if (segue.identifier == "EmbedSegue") {
             let vc = segue.destination as? ContactTableViewController
             contactTableViewController = vc
+            contactTableViewController.parentVC = self
         }
     }
     
@@ -107,6 +108,7 @@ class ContactListViewController: UIViewController {
     }
     
     public func showContactDetail() {
-        performSegue(withIdentifier: "showContactDetail", sender: self)
+        navigationController?.performSegue(withIdentifier: "showContactDetail", sender: self)
+//        performSegue(withIdentifier: "showContactDetail", sender: self)
     }
 }

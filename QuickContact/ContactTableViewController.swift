@@ -13,6 +13,7 @@ class ContactTableViewController: UITableViewController, MFMessageComposeViewCon
     
     var tableViewData: [EmployeeMO]! = []
     var employeeDataHelper: EmployeeDataHelper! = EmployeeDataHelper()
+    var parentVC: ContactListViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,8 +83,6 @@ class ContactTableViewController: UITableViewController, MFMessageComposeViewCon
     }
 
     public func showContactDetail() {
-        let appDelegate  = UIApplication.shared.delegate as! AppDelegate
-        let viewController = appDelegate.window!.rootViewController as! ContactListViewController
-        viewController.showContactDetail()
+        parentVC?.showContactDetail()
     }
 }
