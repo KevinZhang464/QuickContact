@@ -87,30 +87,30 @@
                     </view>
                     <navigationItem key="navigationItem" title="Contact List" id="j1n-r5-S15"/>
                     <connections>
-                        <segue destination="4Se-qR-aRO" kind="show" identifier="showContactDetail" action="showDetailViewController:sender:" id="99e-LX-pw7"/>
+                        <segue destination="25T-CR-KlA" kind="show" identifier="showContactDetail" id="o8V-K5-CLS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="36.431784107946029"/>
         </scene>
-        <!--Contact Detail View Controller-->
-        <scene sceneID="ibq-db-vn4">
+        <!--Contact Detail-->
+        <scene sceneID="qog-AE-eUe">
             <objects>
-                <viewController id="4Se-qR-aRO" customClass="ContactDetailViewController" customModule="QuickContact" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Contact Detail" id="25T-CR-KlA" customClass="ContactDetailViewController" customModule="QuickContact" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Suh-Y8-yxx"/>
-                        <viewControllerLayoutGuide type="bottom" id="HkV-xe-wcN"/>
+                        <viewControllerLayoutGuide type="top" id="Nae-N2-Bno"/>
+                        <viewControllerLayoutGuide type="bottom" id="ueW-Ta-l4I"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="67a-vz-iGX">
+                    <view key="view" contentMode="scaleToFill" id="sNc-1A-OgN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nDV-Ib-DS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hnb-ya-Ld5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="36"/>
+            <point key="canvasLocation" x="1031" y="36"/>
         </scene>
         <!--Contact Table View Controller-->
         <scene sceneID="a6c-xk-F91">

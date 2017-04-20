@@ -108,7 +108,7 @@ class ContactListViewController: UIViewController {
     }
     
     public func showContactDetail() {
-        navigationController?.performSegue(withIdentifier: "showContactDetail", sender: self)
-//        performSegue(withIdentifier: "showContactDetail", sender: self)
+//        navigationController?.performSegue(withIdentifier: "showContactDetail", sender: self)
+        performSegue(withIdentifier: "showContactDetail", sender: self)
     }
 }
