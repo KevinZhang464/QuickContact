@@ -10,19 +10,19 @@ import UIKit
 import MessageUI
 
 class ContactTableViewCell: UITableViewCell {
-    
+
     var viewController: ContactTableViewController?
-    
+
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var phoneNumberLabel: UILabel!
-    
+
     @IBAction func smsBtnClicked(_ sender: Any) {
         viewController?.sendMessage(phoneNumber: phoneNumberLabel.text)
     }
-    
+
     @IBAction func detailClicked(_ sender: Any) {
     }
-    
+
     @IBAction func callBtnClicked(_ sender: Any) {
         let number = phoneNumberLabel.text!
         viewController?.makeCall(phoneNumber: number)

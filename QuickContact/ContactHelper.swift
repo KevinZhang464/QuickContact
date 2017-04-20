@@ -10,18 +10,18 @@ import Foundation
 import Contacts
 
 class ContactHelper: NSObject {
-    
+
     var contactStore = CNContactStore()
-    
+
     func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void, showAlertHandler: @escaping () -> Void) {
         let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
-        
+
         switch authorizationStatus {
         case .authorized:
             completionHandler(true)
-            
+
         case .denied, .notDetermined:
-            self.contactStore.requestAccess(for: CNEntityType.contacts, completionHandler: { (access, accessError) -> Void in
+            self.contactStore.requestAccess(for: CNEntityType.contacts, completionHandler: { (access, _) -> Void in
                 if access {
                     completionHandler(access)
                 } else {
@@ -30,12 +30,12 @@ class ContactHelper: NSObject {
                     }
                 }
             })
-            
+
         default:
             completionHandler(false)
         }
     }
-    
+
     func saveContactWithoutDuplicate (employees: [EmployeeMO]) {
         var newPhoneNumbers = [String]()
         for employee in employees {
@@ -48,24 +48,23 @@ class ContactHelper: NSObject {
             CNContactPhoneNumbersKey
         ]
         let request = CNContactFetchRequest(keysToFetch: keysToFetch as [CNKeyDescriptor])
-        var contacts : [CNContact]! = [CNContact]()
+        var contacts: [CNContact]! = [CNContact]()
         do {
-            try self.contactStore.enumerateContacts(with: request) { contact, stop in
+            try self.contactStore.enumerateContacts(with: request) { contact, _ in
                 contacts.append(contact)
             }
-            
+
             for contact in contacts {
                 print("contact:\(contact)")
-                
-                let firstName=String(format:"%@",contact.givenName)
+
+                let firstName=String(format:"%@", contact.givenName)
                 print("first:\(firstName)")
-                
-                let lastName=String(format:"%@",contact.familyName)
+
+                let lastName=String(format:"%@", contact.familyName)
                 print("last:\(lastName)")
-                
+
                 //get all phone numbers
-                for contctNumVar: CNLabeledValue in contact.phoneNumbers
-                {
+                for contctNumVar: CNLabeledValue in contact.phoneNumbers {
                     let mobNumVar = (contctNumVar.value ).value(forKey: "digits") as! String
                     print("ph no:\(mobNumVar)")
                     if let index = newPhoneNumbers.index(of: mobNumVar) {
@@ -89,7 +88,7 @@ class ContactHelper: NSObject {
             }
         }
     }
-    
+
     func saveContact (givenName: String!, familyName: String!, phoneNumber: String!) {
         let contact = CNMutableContact()
         contact.givenName = givenName
@@ -97,7 +96,7 @@ class ContactHelper: NSObject {
         contact.phoneNumbers = [CNLabeledValue(
             label:CNLabelPhoneNumberiPhone,
             value:CNPhoneNumber(stringValue:phoneNumber))]
-        
+
         let store = CNContactStore()
         let saveRequest = CNSaveRequest()
         saveRequest.add(contact, toContainerWithIdentifier:nil)

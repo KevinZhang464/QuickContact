@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class ContactListViewController: UIViewController {
-    
+
     private var contactTableViewController: ContactTableViewController!
     var employeeDataHelper: EmployeeDataHelper! = EmployeeDataHelper()
     var contactHelper: ContactHelper! = ContactHelper()
@@ -32,7 +32,7 @@ class ContactListViewController: UIViewController {
     @IBAction func refreshBtnClicked(_ sender: Any) {
         getJSON()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -49,7 +49,7 @@ class ContactListViewController: UIViewController {
             contactTableViewController = vc
         }
     }
-    
+
     func setContactDataList(json: [NSDictionary]) {
         for dict in json {
             let givenName = dict.object(forKey: "first_name") as! String
@@ -60,10 +60,10 @@ class ContactListViewController: UIViewController {
                                                  familyName: familyName,
                                                  phoneNumber: phoneNumber)
         }
-        
+
         self.contactTableViewController.reloadTableViewData()
     }
-    
+
     func getJSON() {
         let url = "http://192.168.13.61:8001/"
         Alamofire.request(url).responseJSON { response in
@@ -71,16 +71,16 @@ class ContactListViewController: UIViewController {
 //            print(response.response) // HTTP URL response
 //            print(response.data)     // server data
 //            print(response.result)   // result of response serialization
-            
+
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
             }
-            
+
             guard response.result.isSuccess else {
                 print("Error while fetching remote rooms: \(String(describing: response.result.error))")
                 return
             }
-            
+
             guard let value = response.result.value as? [NSDictionary] else {
                 print("Malformed data received from fetchAllRooms service")
                 return
@@ -92,15 +92,15 @@ class ContactListViewController: UIViewController {
 
     func showMessage(message: String) {
         let alertController = UIAlertController(title: "QuickContact", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) -> Void in
+
+        let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (_) -> Void in
         }
-        
+
         alertController.addAction(dismissAction)
-        
+
         present(alertController, animated: true, completion: nil)
     }
-    
+
     func importContactsToDevice() {
         let employees = employeeDataHelper.getAllEmployees()
         contactHelper.saveContactWithoutDuplicate(employees: employees)
