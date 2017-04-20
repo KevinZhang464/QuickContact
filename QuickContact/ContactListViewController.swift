@@ -60,6 +60,7 @@ class ContactListViewController: UIViewController {
                                                  familyName: familyName,
                                                  phoneNumber: phoneNumber)
         }
+        self.employeeDataHelper.saveAllData()
         
         self.contactTableViewController.reloadTableViewData()
     }

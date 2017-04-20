@@ -46,6 +46,9 @@ class EmployeeDataHelper: NSObject {
         employee.givenName = givenName
         employee.familyName = familyName
         employee.phoneNumber = phoneNumber
+    }
+    
+    func saveAllData() {
         coreDataStack.saveContext()
     }
 }
