@@ -73,4 +73,11 @@ class ContactTableViewController: UITableViewController, MFMessageComposeViewCon
             self.present(messageVC, animated: false, completion: nil)
         }
     }
+    
+    public func makeCall(phoneNumber: String!) {
+        guard let url = URL(string: "telprompt://" + phoneNumber) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
 }
