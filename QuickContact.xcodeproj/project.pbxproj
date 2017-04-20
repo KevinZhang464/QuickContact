@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A853D4C1EA85D09009FAB34 /* DisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A853D4B1EA85D09009FAB34 /* DisplayTableViewCell.swift */; };
 		0A853D4F1EA88C03009FAB34 /* EmployeeMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A853D4D1EA88C03009FAB34 /* EmployeeMO+CoreDataClass.swift */; };
 		0A853D501EA88C03009FAB34 /* EmployeeMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A853D4E1EA88C03009FAB34 /* EmployeeMO+CoreDataProperties.swift */; };
 		0AAB61D21E9E70C700A0F424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB61D11E9E70C700A0F424 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		05030DCDCD680A6A12E54BC1 /* Pods-QuickContact.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickContact.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickContact/Pods-QuickContact.debug.xcconfig"; sourceTree = "<group>"; };
+		0A853D4B1EA85D09009FAB34 /* DisplayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayTableViewCell.swift; sourceTree = "<group>"; };
 		0A853D4D1EA88C03009FAB34 /* EmployeeMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EmployeeMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0A853D4E1EA88C03009FAB34 /* EmployeeMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EmployeeMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0AAB61CE1E9E70C700A0F424 /* QuickContact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickContact.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +168,7 @@
 		0ABD811C1EA0D2BC002C3B1C /* Contact List */ = {
 			isa = PBXGroup;
 			children = (
+				0A853D4B1EA85D09009FAB34 /* DisplayTableViewCell.swift */,
 				0ABD811D1EA0D2DB002C3B1C /* ContactTableViewCell.swift */,
 				0ABD811F1EA0D320002C3B1C /* ContactTableViewController.swift */,
 				0AAB61D31E9E70C700A0F424 /* ContactListViewController.swift */,
@@ -498,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A853D4C1EA85D09009FAB34 /* DisplayTableViewCell.swift in Sources */,
 				0ABD811E1EA0D2DB002C3B1C /* ContactTableViewCell.swift in Sources */,
 				0AAB61D41E9E70C700A0F424 /* ContactListViewController.swift in Sources */,
 				0AAB61D21E9E70C700A0F424 /* AppDelegate.swift in Sources */,

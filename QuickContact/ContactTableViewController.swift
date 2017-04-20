@@ -31,8 +31,17 @@ class ContactTableViewController: UITableViewController, MFMessageComposeViewCon
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "contactTableViewCell", for: indexPath) as! ContactTableViewCell
+        if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "displayTableViewCell") as! DisplayTableViewCell
+            
+            let contactData = tableViewData[indexPath.row]
+            cell.nameLabel?.text = "\(contactData.givenName!) \(contactData.familyName!)"
+            cell.phoneNumberLabel?.text = contactData.phoneNumber
+            cell.viewController = self
+            
+            return cell
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "contactTableViewCell") as! ContactTableViewCell
         
         let contactData = tableViewData[indexPath.row]
         cell.nameLabel?.text = "\(contactData.givenName!) \(contactData.familyName!)"

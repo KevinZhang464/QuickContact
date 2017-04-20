@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -216,6 +216,46 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="V09-Vm-m7W" id="kTg-ym-rjX"/>
                                     <outlet property="phoneNumberLabel" destination="cxz-ny-Qg7" id="OGp-1J-V8O"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="displayTableViewCell" id="PHy-eE-0IS" customClass="DisplayTableViewCell" customModule="QuickContact" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="103" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PHy-eE-0IS" id="ury-wI-9IL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvx-1I-8MQ">
+                                            <rect key="frame" x="8" y="8" width="359" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="itX-xg-2h2"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rH8-1J-aUZ">
+                                            <rect key="frame" x="8" y="41.5" width="359" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="lhp-nz-CSW"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rH8-1J-aUZ" firstAttribute="leading" secondItem="ury-wI-9IL" secondAttribute="leadingMargin" id="5Qk-Jt-vaL"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vvx-1I-8MQ" secondAttribute="trailing" id="F92-xB-6Pv"/>
+                                        <constraint firstItem="vvx-1I-8MQ" firstAttribute="leading" secondItem="ury-wI-9IL" secondAttribute="leadingMargin" id="Mrb-Dz-FhT"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="rH8-1J-aUZ" secondAttribute="bottom" id="Ms1-8R-5fK"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="rH8-1J-aUZ" secondAttribute="trailing" id="ORP-PB-ztZ"/>
+                                        <constraint firstItem="vvx-1I-8MQ" firstAttribute="top" secondItem="ury-wI-9IL" secondAttribute="topMargin" id="SkD-Wg-0Ll"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="vvx-1I-8MQ" id="pHC-9M-SMM"/>
+                                    <outlet property="phoneNumberLabel" destination="rH8-1J-aUZ" id="BcF-lO-t4j"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
