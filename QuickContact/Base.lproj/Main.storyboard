@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f3D-q1-Drg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f3D-q1-Drg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="118" y="-670"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="firstViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="QuickContact" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                             <constraint firstItem="SE0-uX-GG7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uDG-GL-mV4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aC2-5a-yj5"/>
+                    <navigationItem key="navigationItem" title="Contact List" id="aC2-5a-yj5"/>
                     <connections>
                         <outlet property="button" destination="gT8-od-FdU" id="kHV-bV-37i"/>
                         <outlet property="textFeild" destination="orR-xr-FFQ" id="rzA-uy-uiE"/>
@@ -81,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Contact Detail-->
         <scene sceneID="4dd-dr-ews">
             <objects>
                 <viewController storyboardIdentifier="secondViewController" id="l2i-xF-P2R" customClass="DetailViewController" customModule="QuickContact" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,6 +123,7 @@
                             <constraint firstItem="QG4-7k-8W3" firstAttribute="leading" secondItem="Cxy-C7-MOv" secondAttribute="leadingMargin" id="wdh-1n-q4Z"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Contact Detail" id="ukD-28-Kdn"/>
                     <connections>
                         <outlet property="button" destination="QG4-7k-8W3" id="G0V-XE-dYT"/>
                         <outlet property="label" destination="s5S-yY-sFT" id="p4e-Y1-ENd"/>
